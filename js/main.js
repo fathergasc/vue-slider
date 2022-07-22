@@ -37,6 +37,7 @@ const app = new Vue({
       },
     ],
     timer: 3000,
+    autoP: null,
     
 
   },
@@ -47,6 +48,7 @@ const app = new Vue({
       } else {
         this.currentActiveImg++;
       }
+      this.resetTimer();
     },
     prev() {
       if (this.currentActiveImg == 0) {
@@ -54,6 +56,7 @@ const app = new Vue({
       } else {
         this.currentActiveImg--;
       }
+      this.resetTimer();
     },
     autoPlay() {
       if (this.currentActiveImg == this.images.length - 1) {
@@ -61,13 +64,21 @@ const app = new Vue({
       } else {
         this.currentActiveImg++;
       }
+      
     },
+    resetTimer() {
+        clearInterval(this.autoP);
+        this.autoP = setInterval(this.autoPlay, this.timer)
+    },
+    pause() {
+        clearInterval(this.autoP);
+    }
     
   },
 
     mounted() {
         this.$nextTick(function () {
-        setInterval(this.autoPlay, 5000);
+        this.autoP = setInterval(this.autoPlay, this.timer);
         });
     },
   },
