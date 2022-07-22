@@ -39,6 +39,7 @@ const app = new Vue({
     timer: 3000,
     autoP: null,
     
+    
 
   },
   methods: {
@@ -49,6 +50,7 @@ const app = new Vue({
         this.currentActiveImg++;
       }
       this.resetTimer();
+      console.log('autoP: ', this.autoP);
     },
     prev() {
       if (this.currentActiveImg == 0) {
@@ -57,6 +59,7 @@ const app = new Vue({
         this.currentActiveImg--;
       }
       this.resetTimer();
+      console.log('autoP: ', this.autoP);
     },
     autoPlay() {
       if (this.currentActiveImg == this.images.length - 1) {
@@ -72,7 +75,7 @@ const app = new Vue({
     },
     pause() {
         clearInterval(this.autoP);
-    }
+    },
     
   },
 

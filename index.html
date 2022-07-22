@@ -31,9 +31,9 @@
 
                 <div class="col-12 p-5">
                     <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
-                        <div class="my-carousel-images">
+                        <div class="my-carousel-images" @mouseenter="pause" @mouseleave="resetTimer">
                             
-                            <div class="my-carousel-item active">
+                            <div class="my-carousel-item active" >
                                 <img class="img-fluid" v-bind:src="images[currentActiveImg].url" :alt="images[currentActiveImg].title">
                                 <div class="item-description px-3">
                                     <h2>{{images[currentActiveImg].title}}</h2>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="my-thumbnails position-relative">
 
-                            <div v-for="(item, index) in images" :class="(currentActiveImg == index)? 'active':''" class="my-thumbnail" @click="currentActiveImg = index" @mousenter="">
+                            <div v-for="(item, index) in images" :class="(currentActiveImg == index)? 'active':''" class="my-thumbnail" @click="currentActiveImg = index">
                                 <img class="img-fluid" :src="item.url" :alt="`Thumbnail of ` + item.title + ` picture`">
                             </div>
 
