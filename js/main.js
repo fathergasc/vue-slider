@@ -83,6 +83,7 @@ const app = new Vue({
         this.$nextTick(function () {
         this.autoP = setInterval(this.autoPlay, this.timer);
         });
+        this.$refs.carousel.focus(); //focus on the image div on load
     },
   },
 );

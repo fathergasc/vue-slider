@@ -33,7 +33,7 @@
                     <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
                         <div class="my-carousel-images" @mouseenter="pause" @mouseleave="resetTimer">
                             
-                            <div class="my-carousel-item active" >
+                            <div id="carousel" ref="carousel" class="my-carousel-item active" tabindex="0" v-on:keyup.right="next" v-on:keyup.left="prev">
                                 <img class="img-fluid" v-bind:src="images[currentActiveImg].url" :alt="images[currentActiveImg].title">
                                 <div class="item-description px-3">
                                     <h2>{{images[currentActiveImg].title}}</h2>
