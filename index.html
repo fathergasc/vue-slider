@@ -30,10 +30,10 @@
                 </div>
 
                 <div class="col-12 p-5">
-                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
+                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" ref="carousel" tabindex="0" v-on:keyup.right="next" v-on:keyup.left="prev">
                         <div class="my-carousel-images" @mouseenter="pause" @mouseleave="resetTimer">
                             
-                            <div id="carousel" ref="carousel" class="my-carousel-item active" tabindex="0" v-on:keyup.right="next" v-on:keyup.left="prev">
+                            <div  class="my-carousel-item active" >
                                 <img class="img-fluid" v-bind:src="images[currentActiveImg].url" :alt="images[currentActiveImg].title">
                                 <div class="item-description px-3">
                                     <h2>{{images[currentActiveImg].title}}</h2>
